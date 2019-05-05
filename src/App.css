@@ -1,33 +1,217 @@
-.App {
-  text-align: center;
+body { background-color: #282c34; padding-bottom: 40px;}
+
+.poke_logo {
+	display: block;
+	max-width: 100%;
+	height: 100px;
+	margin: 20px auto;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 40vmin;
-  pointer-events: none;
+.btn {
+	width: 60px;
+	background: transparent;
+	border: 1px solid #cecece;
+	color: #cecece;
+	outline: none;
+	cursor: pointer;
+	margin: 10px 2px;
+	padding: 1px;
+	height: 25px;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.btn.salvar:active,
+.btn.salvar:hover {
+	background: #40B000;
+	color: #ffffff;
+}
+
+.btn.excluir:active,
+.btn.excluir:hover {
+	background: #CC0000;
+	color: #ffffff;
+}
+
+.btn.cancelar:active,
+.btn.cancelar:hover {
+	background: #0000CC;
+	color: #ffffff;
+}
+
+.pokemon_container {
   display: flex;
-  flex-direction: column;
-  align-items: center;
+  flex-direction: row;
+  flex-wrap: wrap;
+	align-items: center;
   justify-content: center;
-  font-size: calc(10px + 2vmin);
   color: white;
+  max-width: 1200px;
+  margin:  0 auto;
 }
 
-.App-link {
-  color: #61dafb;
+.pokemon_card {
+	background-color: #ffffff;
+	height: 200px;
+	width: 200px;
+	margin: 5px;
+	overflow: hidden;
+	color: #000000;
+	position: relative;
 }
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.pokemon_card.hide {
+	transition: .5s ease all;
+	opacity: 0;
+}
+
+.pokemon_card h3 {
+	margin: 0 auto;
+	text-indent: 10px;
+}
+
+.pokemon_card .btn_editar {
+	position: absolute;
+	top: 0;
+	right: 0;
+	background: transparent;
+	border: 1px solid #cecece;
+	color: #cecece;
+	border-bottom-left-radius: 5px;
+	outline: none;
+	cursor: pointer; 
+} 
+
+.pokemon_card .btn_editar:active,
+.pokemon_card .btn_editar:hover {
+	background: #cecece;
+	color: #ffffff;
+}
+
+.pokemon_card ul {
+	padding: 0 10px;
+	margin-top: 60px;
+}
+
+.pokemon_card ul li {
+	padding: 0;
+	margin:  0;
+	list-style: none;
+	font-size: 12px;
+}
+
+.pokemon_card img {
+	display: block;
+	max-width: 100%;
+	margin: 20px auto;
+	max-height: 50px;
+}
+
+.pokemon_card ul {
+	display: flex;
+	justify-content: space-between;
+}
+
+.pokemon_card .formulario_edicao {
+	position: absolute;
+	top: 0;
+	left: 0;
+	height: 100%;
+	width: 100%;
+	display: flex;
+	padding: 0 5px;
+	align-items: center;
+	justify-content: center;
+	background: rgba(40, 44, 52, .9);
+
+	display: none;
+	opacity: 0;
+	transform: translate3d(-10px,0,0);
+}
+
+.pokemon_card .formulario_edicao.show {
+	display: flex;
+	animation: showFormEdit .3s ease forwards .1s;
+}
+
+@keyframes showFormEdit {
+	from { opacity: 0;
+	transform: translate3d(-10px,0,0); }
+	to {opacity: 1;
+	transform: translate3d(0px,0,0);}
+}
+
+.pokemon_card .formulario_edicao h4 {
+	margin:  0 auto;
+	text-align: center;
+	color:  #ffffff;
+	margin-bottom: 20px;
+}
+
+.pokemon_card .formulario_edicao input {
+	width: 120px;
+	margin-bottom: 5px;
+	background: transparent;
+	border:  none;
+	outline: none;
+	border-bottom: 1px solid #cecece;
+	color: #fff;
+}
+
+.pokemon_card .formulario_edicao label {
+	display: inline-block;
+	width: 52px;
+	margin-right: 5px;
+	color:  #ffffff;
+}
+
+.pokemon_filtro {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	padding: 20px 0;
+}
+
+.pokemon_filtro form {
+	width: 40%;
+}
+
+@media all and (max-width: 600px) {
+	.pokemon_filtro form {
+		width: 60%;
+	}
+}
+
+.pokemon_filtro form input {
+	display: block;
+	background: transparent;
+	border: 1px solid #cecece;
+	border-radius: 40px;
+	outline: none;
+	padding: 10px;
+	color:  #ffffff;
+	width: 100%;	
+}
+
+.pokemon_pager {
+	display: flex;
+	max-width: 1050px;
+	margin: 10px auto;
+	align-items: center;
+	justify-content: space-between;
+	padding: 0 20px;
+}
+
+.pokemon_pager button {
+	background: transparent;
+	border: 1px solid #cecece;
+	color: #cecece;
+	padding: 10px;
+	width: 100px;
+	border-radius: 20px;
+	outline: none;
+	cursor: pointer;
+}
+
+.pokemon_pager button:active {
+	background: #cecece;
+	color: #ffffff;
 }
